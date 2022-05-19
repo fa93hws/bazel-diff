@@ -98,6 +98,11 @@ workspace.
       -co, --bazelCommandOptions=<bazelCommandOptions>
                           Additional space separated Bazel command options used
                             when invoking Bazel
+      --contentHashPath=<contentHashPath>
+                          Path to content hash json file. It's a map which maps
+                            relative file path from workspace path to its
+                            content hash. Files in this map will skip content
+                            hashing and use provided value                            
   -h, --help              Show this help message and exit.
   -k, --[no-]keep_going   This flag controls if `bazel query` will be executed
                             with the `--keep_going` flag or not. Disabling this
@@ -250,7 +255,7 @@ bazel run @bazel_diff//:bazel-diff -- bazel-diff -h
 To run the tests simply run
 
 ```terminal
-bazel test //test/...
+bazel test //...
 ```
 
 ## Versioning
